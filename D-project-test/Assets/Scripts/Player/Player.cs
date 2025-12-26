@@ -12,6 +12,9 @@ public class Player : MonoBehaviour, IPlayer
     [SerializeField]
     private Transform leftTransform;
 
+    [SerializeField]
+    private ParticleSystem changeWeaponEffectPrefab;
+
     private int health;
     private string nickname;
     private Skills[] skills;
@@ -52,10 +55,11 @@ public class Player : MonoBehaviour, IPlayer
     public void TakeNextItem()
     {
         equipment.ChangeItem();
-        equipment.CurrentItem.gameObject.SetActive(true);
 
         var socketTransform = SelectItemSocket(equipment.CurrentItem.ItemSocketPart);
 
+        var effect = Instantiate(changeWeaponEffectPrefab, socketTransform.position, Quaternion.identity);
+        equipment.CurrentItem.gameObject.SetActive(true);
         equipment.CurrentItem.Setup(socketTransform);
     }
 
