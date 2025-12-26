@@ -1,6 +1,6 @@
 public class EquipmentFactory : IEquipmentFactory
 {
-    public Equipment Create()
+    public IEquipment Create()
     {
         var equipment = new Equipment();
 

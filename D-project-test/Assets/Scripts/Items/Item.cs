@@ -1,9 +1,15 @@
-public abstract class Item
+using UnityEngine;
+
+public abstract class Item : MonoBehaviour, IItem
 {
-    protected string name;
+    protected string Name;
 
     public Item(string name)
     {
-        this.name = name;
+        Name = name;
     }
+
+    public void Setup(Transform parent) { }
+
+    public virtual void Use() { }
 }

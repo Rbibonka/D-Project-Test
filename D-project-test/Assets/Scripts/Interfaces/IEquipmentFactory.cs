@@ -1,4 +1,4 @@
 public interface IEquipmentFactory
 {
-    Equipment Create();
+    IEquipment Create();
 }
