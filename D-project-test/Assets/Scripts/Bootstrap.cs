@@ -5,24 +5,31 @@ using Zenject;
 public class Bootstrap : MonoBehaviour
 {
     [SerializeField]
-    private Item[] items;
-
-    [SerializeField]
     private Transform startSpawnPoint;
 
     [Inject]
     private IPlayer player;
 
+    [Inject]
+    private IItemsCreator itemsCreator;
+
     private void Awake()
     {
-        foreach (var item in items)
-        {
-            item.gameObject.SetActive(false);
+        //foreach (var item in items)
+        //{
+        //    var tempItem = Instantiate(item.ItemPrefab);
 
-            player.AddEquipment(item);
-        }
+        //    tempItem.InitializeBase(item.Name, item.ItemSocketParts);
+        //    tempItem.gameObject.SetActive(false);
 
-        player.TakeCurrentItem();
+        //    player.AddEquipment(tempItem);
+        //}
+
+        player.AddEquipment(itemsCreator.CreateWeapon());
+        player.AddEquipment(itemsCreator.CreateParachute());
+        player.AddEquipment(itemsCreator.CreateJatPack());
+
+        player.TakeNextItem();
         player.SetPosition(startSpawnPoint.position);
     }
 

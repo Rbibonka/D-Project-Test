@@ -1,15 +1,11 @@
 public class Weapon : Item
 {
-    private int ammo;
+    private int damage;
 
-    public Weapon(string name, int ammo)
-        : base(name)
+    public void Initialize(int damage, string name, ItemSocketParts itemSocketPart)
     {
-        this.ammo = ammo;
-    }
+        base.InitializeBase(name, itemSocketPart);
 
-    public override void Use()
-    {
-        base.Use();
+        this.damage = damage;
     }
 }

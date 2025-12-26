@@ -6,6 +6,12 @@ public class Player : MonoBehaviour, IPlayer
     [Inject]
     private IEquipmentFactory equipmentFactory;
 
+    [SerializeField]
+    private Transform backTransform;
+
+    [SerializeField]
+    private Transform leftTransform;
+
     private int health;
     private string nickname;
     private Skills[] skills;
@@ -30,29 +36,6 @@ public class Player : MonoBehaviour, IPlayer
         inputListener.EquipmentChanged += OnEquipmentChanged;
     }
 
-    public void TakeCurrentItem()
-    {
-        equipment.ChangeItem();
-        equipment.CurrentItem.gameObject.SetActive(true);
-    }
-
-    public void AddEquipment(Item item)
-    {
-        equipment.AddItem(item);
-    }
-
-    public void SetPosition(Vector3 position)
-    {
-        transform.position = position;
-    }
-
-    private void OnEquipmentChanged()
-    {
-        equipment.CurrentItem.gameObject.SetActive(false);
-        equipment.ChangeItem();
-        equipment.CurrentItem.gameObject.SetActive(true);
-    }
-
     public void Dispose()
     {
         if (disposed)
@@ -64,5 +47,43 @@ public class Player : MonoBehaviour, IPlayer
         inputListener.Dispose();
 
         disposed = true;
+    }
+
+    public void TakeNextItem()
+    {
+        equipment.ChangeItem();
+        equipment.CurrentItem.gameObject.SetActive(true);
+
+        var socketTransform = SelectItemSocket(equipment.CurrentItem.ItemSocketPart);
+
+        equipment.CurrentItem.Setup(socketTransform);
+    }
+
+    public void AddEquipment(Item item)
+    {
+        item.gameObject.SetActive(false);
+
+        equipment.AddItem(item);
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
+
+    private void OnEquipmentChanged()
+    {
+        equipment.CurrentItem.gameObject.SetActive(false);
+        TakeNextItem();
+    }
+
+    private Transform SelectItemSocket(ItemSocketParts itemSocketParts)
+    {
+        switch (itemSocketParts)
+        {
+            case ItemSocketParts.Back: return backTransform;
+            case ItemSocketParts.LeftHand: return leftTransform;
+            default: throw new System.Exception("No socket");
+        }
     }
 }

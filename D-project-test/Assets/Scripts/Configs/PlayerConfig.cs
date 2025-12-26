@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewPlayerConfig", menuName = "PlayerData/PlayerConfig")]
+[CreateAssetMenu(fileName = "NewPlayerConfig", menuName = "GameData/PlayerConfig")]
 public class PlayerConfig : ScriptableObject
 {
     [field: SerializeField]
