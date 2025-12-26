@@ -1,0 +1,14 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "NewPlayerConfig", menuName = "PlayerData/PlayerConfig")]
+public class PlayerConfig : ScriptableObject
+{
+    [field: SerializeField]
+    public int Health { get; private set; }
+
+    [field: SerializeField]
+    public string Nickname { get; private set; }
+
+    [field: SerializeField]
+    public string[] Skills { get; private set; }
+}
