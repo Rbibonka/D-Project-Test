@@ -10,5 +10,5 @@ public class PlayerConfig : ScriptableObject
     public string Nickname { get; private set; }
 
     [field: SerializeField]
-    public string[] Skills { get; private set; }
+    public Skills[] Skills { get; private set; }
 }

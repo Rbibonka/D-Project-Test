@@ -5,7 +5,7 @@ public class Player : MonoBehaviour, IPlayer
 {
     private int health;
     private string nickname;
-    private string[] skills;
+    private Skills[] skills;
 
     [Inject]
     private IEquipmentFactory equipmentFactory;
@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, IPlayer
     public void Initialize(
         int health,
         string nickname,
-        string[] skills)
+        Skills[] skills)
     {
         this.health = health;
         this.nickname = nickname;
