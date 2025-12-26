@@ -97,7 +97,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3882110396889149566}
   - component: {fileID: 1027898286491686971}
-  - component: {fileID: 4463852700771191117}
   m_Layer: 0
   m_Name: Necromancer_of_the_Shadow
   m_TagString: Untagged
@@ -146,20 +145,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4463852700771191117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1753241052511756779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e9dda14b6f34517a0d598d3320a902, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortingOrder: 0
-  applySpriterZOrder: 0
 --- !u!1 &2800771131761253064
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,7 +908,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1414814084377385776}
   - component: {fileID: 1634972141289595662}
-  - component: {fileID: 5332735603155571511}
   m_Layer: 0
   m_Name: Face 01
   m_TagString: Untagged
@@ -1001,23 +985,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5332735603155571511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8332218643119432483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d8dc87df01e4958ab48153b19f0ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DisplayedSprite: 0
-  Sprites:
-  - {fileID: 21300000, guid: 1898265cfaeaa5a41a39be61e95b007b, type: 3}
-  - {fileID: 21300000, guid: 0bb610b13f0983f4592dfa39cc22c05d, type: 3}
-  - {fileID: 21300000, guid: 7599cf41f5c93084eae7e08c79452f27, type: 3}
 --- !u!1 &8536411633091523067
 GameObject:
   m_ObjectHideFlags: 0
