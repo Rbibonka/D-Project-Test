@@ -1,4 +1,7 @@
 public class Parachute : Item
 {
-    public Parachute(string name) : base(name) { }
+    public void Initialize(string name, ItemSocketParts itemSocketPart)
+    {
+        base.InitializeBase(name, itemSocketPart);
+    }
 }
