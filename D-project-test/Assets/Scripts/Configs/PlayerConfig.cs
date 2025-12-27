@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewPlayerConfig", menuName = "GameData/PlayerConfig")]
-public class PlayerConfig : ScriptableObject
+public sealed class PlayerConfig : ScriptableObject
 {
     [field: SerializeField]
     public int Health { get; private set; }
