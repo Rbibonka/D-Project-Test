@@ -1,8 +1,14 @@
 using UnityEngine;
 using Zenject;
 
-public class PlayerController : MonoBehaviour, IPlayer
+public class PlayerController : MonoBehaviour, IPlayer, IPlayerInfo
 {
+    public int Health => health;
+
+    public string Nickname => nickname;
+
+    public Skills[] Skills => skills;
+
     [Inject]
     private IEquipmentFactory equipmentFactory;
 
@@ -97,7 +103,7 @@ public class PlayerController : MonoBehaviour, IPlayer
         {
             case ItemSocketParts.Back: return backTransform;
             case ItemSocketParts.LeftHand: return leftTransform;
-            default: throw new System.Exception("No socket");
+            default: throw new System.Exception("Unknown socket");
         }
     }
 }

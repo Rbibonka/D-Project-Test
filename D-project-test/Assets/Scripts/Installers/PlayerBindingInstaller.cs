@@ -27,5 +27,6 @@ public class PlayerBindingInstaller : MonoInstaller
         playerInstance.Initialize(playerConfig.Health, playerConfig.Nickname, playerConfig.Skills);
 
         Container.Bind<IPlayer>().FromInstance(playerInstance).AsSingle();
+        Container.Bind<IPlayerInfo>().FromInstance(playerInstance).AsSingle();
     }
 }

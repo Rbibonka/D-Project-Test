@@ -7,8 +7,14 @@ public class Bootstrap : MonoBehaviour
     [SerializeField]
     private Transform startSpawnPoint;
 
+    [SerializeField]
+    private PlayerInfoController playerInfoController;
+
     [Inject]
     private IPlayer player;
+
+    [Inject]
+    private IPlayerInfo playerInfo;
 
     [Inject]
     private IItemsCreator itemsCreator;
@@ -20,6 +26,8 @@ public class Bootstrap : MonoBehaviour
         player.AddEquipment(itemsCreator.CreateJatPack());
 
         player.SetPosition(startSpawnPoint.position);
+
+        playerInfoController.Initialize(playerInfo.Nickname, playerInfo.Health);
     }
 
     private void OnDestroy()

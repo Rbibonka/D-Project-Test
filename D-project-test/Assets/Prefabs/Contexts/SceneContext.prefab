@@ -79,6 +79,7 @@ Transform:
   m_Children:
   - {fileID: 1666934909917573319}
   - {fileID: 2433995498647312258}
+  - {fileID: 4717715004179667601}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5452409933680641852
@@ -97,6 +98,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 6172797914422115227}
   - {fileID: 1754729327712254208}
+  - {fileID: 862523202115043949}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -161,3 +163,50 @@ MonoBehaviour:
   playerPrefab: {fileID: 8725880558619139833, guid: 4fe95a696ee261848841fea23fe4a9bc, type: 3}
   playerConfig: {fileID: 11400000, guid: c3193c33c6b21e642a8cebe9b64efe23, type: 2}
   effect: {fileID: 9674880972946162, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+--- !u!1 &9122966088889698123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4717715004179667601}
+  - component: {fileID: 862523202115043949}
+  m_Layer: 0
+  m_Name: UIBindingInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4717715004179667601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122966088889698123}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7515184981501556441}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &862523202115043949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122966088889698123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bac2601dcccd6a42a292abe316813d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txt_PlayerName: {fileID: 0}
+  txt_SkillsName: {fileID: 0}
+  dropDownSkills: {fileID: 0}
