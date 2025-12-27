@@ -80,7 +80,7 @@ Material:
     - _DirectLightingMix: 0.5
     - _DirectLightingRamp: 1
     - _DissolveSmooth: 0.1
-    - _Distort: 0.65
+    - _Distort: 0.2
     - _DoubleDissolve: 0
     - _DstBlend: 10
     - _EdgeFadePow: 1

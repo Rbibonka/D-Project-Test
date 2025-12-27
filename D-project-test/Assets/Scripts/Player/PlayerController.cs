@@ -1,10 +1,13 @@
 using UnityEngine;
 using Zenject;
 
-public class Player : MonoBehaviour, IPlayer
+public class PlayerController : MonoBehaviour, IPlayer
 {
     [Inject]
     private IEquipmentFactory equipmentFactory;
+
+    [Inject]
+    private IEffectPlayer effectPlayer;
 
     [SerializeField]
     private Transform backTransform;
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour, IPlayer
     private IEquipment equipment;
 
     private PlayerInputListener inputListener;
+    private PlayerView view;
     private bool disposed;
 
     public void Initialize(
@@ -30,6 +34,7 @@ public class Player : MonoBehaviour, IPlayer
         Skills[] skills)
     {
         inputListener = new();
+        view = new(changeWeaponEffectPrefab);
 
         this.health = health;
         this.nickname = nickname;
@@ -58,9 +63,10 @@ public class Player : MonoBehaviour, IPlayer
 
         var socketTransform = SelectItemSocket(equipment.CurrentItem.ItemSocketPart);
 
-        var effect = Instantiate(changeWeaponEffectPrefab, socketTransform.position, Quaternion.identity);
+        effectPlayer.PlayEffect(socketTransform.position);
+
         equipment.CurrentItem.gameObject.SetActive(true);
-        equipment.CurrentItem.Setup(socketTransform);
+        equipment.CurrentItem.SetToGrabPoint(socketTransform);
     }
 
     public void AddEquipment(Item item)

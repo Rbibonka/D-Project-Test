@@ -4,7 +4,7 @@ public interface IItem
 {
     ItemSocketParts ItemSocketPart { get; }
 
-    void Setup(Transform parent);
+    void SetToGrabPoint(Transform parent);
 
     void Use();
 }

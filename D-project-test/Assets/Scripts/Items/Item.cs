@@ -12,9 +12,9 @@ public abstract class Item : MonoBehaviour, IItem
         ItemSocketPart = itemSocketPart;
     }
 
-    public void Setup(Transform parent)
+    public void SetToGrabPoint(Transform grabTransform)
     {
-        transform.SetParent(parent, true);
+        transform.SetParent(grabTransform, true);
         transform.localPosition = Vector3.zero;
     }
 
