@@ -1,4 +1,6 @@
 public enum Skills
 {
-    None
+    None,
+    Avoidance,
+    Force
 }

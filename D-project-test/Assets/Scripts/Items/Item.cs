@@ -24,7 +24,7 @@ public abstract class Item : MonoBehaviour, IItem, IViewable
 
     public virtual void Use()
     {
-        
+        Debug.Log("Use");
     }
 
     public virtual void Show()
