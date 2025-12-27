@@ -83,7 +83,11 @@ public class PlayerController : MonoBehaviour, IPlayer
 
     private void OnEquipmentChanged()
     {
-        equipment.CurrentItem.gameObject.SetActive(false);
+        if (equipment.CurrentItem != null)
+        {
+            equipment.CurrentItem.gameObject.SetActive(false);
+        }
+
         TakeNextItem();
     }
 

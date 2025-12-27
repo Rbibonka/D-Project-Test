@@ -12,10 +12,12 @@ public class PlayerBindingInstaller : MonoInstaller
     [SerializeField]
     private Effect effect;
 
+    private const int startObjectPoolSize = 2;
+
     public override void InstallBindings()
     {
         Container.Bind<IObjectPool<PoolableObject>>().To<EffectsObjectPool>().AsSingle()
-            .WithArguments(effect, 2);
+            .WithArguments(effect, startObjectPoolSize);
 
         Container.Bind<IEffectPlayer>().To<EffectsCreator>().AsSingle();
 

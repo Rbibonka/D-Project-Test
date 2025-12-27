@@ -6,7 +6,7 @@ public class Equipment : IEquipment
 
     private LinkedListNode<Item> currentItem;
 
-    public Item CurrentItem => currentItem.Value;
+    public Item CurrentItem => currentItem?.Value;
 
     public Equipment()
     {
