@@ -7,30 +7,27 @@ public class Bootstrap : MonoBehaviour
     [SerializeField]
     private Transform startSpawnPoint;
 
+    [SerializeField]
+    private PlayerInfoController playerInfoController;
+
     [Inject]
     private IPlayer player;
+
+    [Inject]
+    private IPlayerInfo playerInfo;
 
     [Inject]
     private IItemsCreator itemsCreator;
 
     private void Awake()
     {
-        //foreach (var item in items)
-        //{
-        //    var tempItem = Instantiate(item.ItemPrefab);
-
-        //    tempItem.InitializeBase(item.Name, item.ItemSocketParts);
-        //    tempItem.gameObject.SetActive(false);
-
-        //    player.AddEquipment(tempItem);
-        //}
-
         player.AddEquipment(itemsCreator.CreateWeapon());
         player.AddEquipment(itemsCreator.CreateParachute());
         player.AddEquipment(itemsCreator.CreateJatPack());
 
-        player.TakeNextItem();
         player.SetPosition(startSpawnPoint.position);
+
+        playerInfoController.Initialize(playerInfo.Nickname, playerInfo.Health);
     }
 
     private void OnDestroy()
