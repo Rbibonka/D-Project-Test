@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class PlayerView
 {
-    private ParticleSystem changeWeaponEffectPrefab;
+    private IEffectPlayer effectPlayer;
 
-    public PlayerView(ParticleSystem changeWeaponEffectPrefab)
+    public PlayerView(IEffectPlayer effectPlayer)
     {
-        this.changeWeaponEffectPrefab = changeWeaponEffectPrefab;
+        this.effectPlayer = effectPlayer;
     }
 
-    public void PlayChangeWeaponEffect()
+    public void PlayEffect(Vector3 position)
     {
-
+        effectPlayer.PlayEffect(position);
     }
 }

@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour, IPlayer
         Skills[] skills)
     {
         inputListener = new();
-        view = new(changeWeaponEffectPrefab);
+        view = new(effectPlayer);
 
         this.health = health;
         this.nickname = nickname;
@@ -63,15 +63,15 @@ public class PlayerController : MonoBehaviour, IPlayer
 
         var socketTransform = SelectItemSocket(equipment.CurrentItem.ItemSocketPart);
 
-        effectPlayer.PlayEffect(socketTransform.position);
+        view.PlayEffect(socketTransform.position);
 
-        equipment.CurrentItem.gameObject.SetActive(true);
+        equipment.CurrentItemView.Show();
         equipment.CurrentItem.SetToGrabPoint(socketTransform);
     }
 
     public void AddEquipment(Item item)
     {
-        item.gameObject.SetActive(false);
+        item.HideImmediately();
 
         equipment.AddItem(item);
     }
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour, IPlayer
     {
         if (equipment.CurrentItem != null)
         {
-            equipment.CurrentItem.gameObject.SetActive(false);
+            equipment.CurrentItemView.Hide();
         }
 
         TakeNextItem();
